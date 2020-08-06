@@ -22,6 +22,7 @@ public:
 	~MTrkEvent();
 
 	[[nodiscard]] VLQ getDeltaTime() const;
+	[[nodiscard]] const Event* getEvent() const;
 	[[nodiscard]] long getByteLength() const;
 
 protected:

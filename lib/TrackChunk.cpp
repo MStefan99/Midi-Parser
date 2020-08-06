@@ -17,3 +17,8 @@ TrackChunk::TrackChunk(const char* filePath, long addr):
 		bytesRead += event.getByteLength();
 	}
 }
+
+
+const LIST<MTrkEvent>& TrackChunk::getEvents() const {
+	return events;
+}

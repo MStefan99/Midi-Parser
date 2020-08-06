@@ -10,12 +10,14 @@ BaseChunk::BaseChunk(const char* filePath, long addr) {
 	FILE* f = fopen(filePath, "rb");
 	fseek(f, addr, SEEK_SET);
 
-	type = new char[5];
-	fread(type, 4, 1, f);
-	type[4] = 0;
+	name = new char[5];
+	fread(name, 4, 1, f);
+	name[4] = 0;
 
 	length = read32(f);
 	byteLength = length + 8;
+
+	fclose(f);
 }
 
 
@@ -23,20 +25,20 @@ BaseChunk::BaseChunk(const BaseChunk& chunk) {
 	length = chunk.length;
 	byteLength = chunk.byteLength;
 
-	type = new char[5];
+	name = new char[5];
 	for (int i {0}; i < 5; ++i) {
-		type[i] = chunk.type[i];
+		name[i] = chunk.name[i];
 	}
 }
 
 
 BaseChunk::~BaseChunk() {
-	delete[] (type);
+	delete[] (name);
 }
 
 
-std::string BaseChunk::getType() const {
-	return std::string(type);
+std::string BaseChunk::getName() const {
+	return std::string(name);
 }
 
 

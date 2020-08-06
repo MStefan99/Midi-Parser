@@ -2,10 +2,10 @@
 // Created by MStefan99 on 4.8.20.
 //
 
-#include "MidiFile.h"
+#include "Midi.h"
 
 
-MidiFile::MidiFile(const char* filePath): header(filePath) {
+Midi::Midi(const char* filePath): header(filePath) {
 	long addr = header.getByteLength();
 
 	for (int i {0}; i < header.getNTracks(); ++i) {
@@ -13,4 +13,14 @@ MidiFile::MidiFile(const char* filePath): header(filePath) {
 		tracks.push_back(track);
 		addr += track.getByteLength();
 	}
+}
+
+
+const HeaderChunk& Midi::getHeader() const {
+	return header;
+}
+
+
+const LIST<TrackChunk>& Midi::getTracks() const {
+	return tracks;
 }

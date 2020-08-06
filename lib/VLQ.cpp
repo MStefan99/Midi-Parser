@@ -22,6 +22,8 @@ VLQ::VLQ(const char* filePath, long addr): length {0}, data {0} {
 			this->data |= (byte = getc(f)) & 0x7fu;
 		} while (byte & 0x80u);
 	}
+
+	fclose(f);
 }
 
 

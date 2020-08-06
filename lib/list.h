@@ -2,6 +2,9 @@
 // Created by MStefan99 on 25.11.19.
 //
 
+
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCInconsistentNamingInspection"
 #ifndef MIDI_PARSER_LIST_H
 #define MIDI_PARSER_LIST_H
 
@@ -365,9 +368,8 @@ template <class T>
 typename list<T>::iterator& list<T>::iterator::operator ++() {
 	if (!elementPointer->nextElement) {
 		lastPointer = elementPointer;
-	} else {
-		elementPointer = elementPointer->nextElement;
 	}
+	elementPointer = elementPointer->nextElement;
 	return *this;
 }
 
@@ -377,9 +379,8 @@ const typename list<T>::iterator list<T>::iterator::operator ++(int) { // NOLINT
 	iterator temp {this};
 	if (!elementPointer->nextElement) {
 		lastPointer = elementPointer;
-	} else {
-		elementPointer = elementPointer->nextElement;
 	}
+	elementPointer = elementPointer->nextElement;
 	return temp;
 }
 
@@ -439,3 +440,5 @@ T& list<T>::iterator::operator *() const {
 
 
 #endif //MIDI_PARSER_LIST_H
+
+#pragma clang diagnostic pop

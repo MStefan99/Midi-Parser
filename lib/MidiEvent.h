@@ -15,10 +15,10 @@ class MidiEvent: public Event {
 public:
 	MidiEvent(const char* filePath, long addr);
 	~MidiEvent() override = default;
+	[[nodiscard]] Event * clone() const override;
 
-	Event * clone() const override;
-
-	[[nodiscard]] uint8_t getStatus() const;
+	[[nodiscard]] MidiType::EventType getType() const override;
+	[[nodiscard]] MidiType::MidiMessageStatus getStatus() const;
 	[[nodiscard]] uint16_t getData() const;
 
 protected:

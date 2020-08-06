@@ -9,7 +9,7 @@ SysExEvent::SysExEvent(const char* filePath, long addr) {
 	FILE* f = fopen(filePath, "rb");
 	fseek(f, addr, SEEK_SET);
 
-	code = getc(f);
+	status = getc(f);
 	length = getc(f);
 	data = new uint8_t[length];
 	byteLength = length + 2;
@@ -17,13 +17,15 @@ SysExEvent::SysExEvent(const char* filePath, long addr) {
 	for (int i {0}; i < length; ++i) {
 		data[i] = getc(f);
 	}
+
+	fclose(f);
 }
 
 
 Event* SysExEvent::clone() const {
 	auto* e = new SysExEvent;
 
-	e->code = code;
+	e->status = status;
 	e->length = length;
 	e->data = new uint8_t[length];
 
@@ -38,3 +40,24 @@ Event* SysExEvent::clone() const {
 SysExEvent::~SysExEvent() {
 	delete[] (data);
 }
+
+
+MidiType::EventType SysExEvent::getType() const {
+	return MidiType::SysExEvent;
+}
+
+
+MidiType::SysExMessageStatus SysExEvent::getStatus() const {
+	return MidiType::SysExMessageStatus(status);
+}
+
+
+uint8_t SysExEvent::getLength() const {
+	return length;
+}
+
+
+uint8_t* SysExEvent::getData() const {
+	return data;
+}
+

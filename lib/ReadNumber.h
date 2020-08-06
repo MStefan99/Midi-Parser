@@ -8,6 +8,7 @@
 
 #include <cstdio>
 #include <cstdint>
+#include "Options.h"
 
 
 uint16_t read16(FILE* f);

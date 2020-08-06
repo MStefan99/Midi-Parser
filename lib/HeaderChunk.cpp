@@ -10,14 +10,16 @@ HeaderChunk::HeaderChunk(const char* filePath):
 
 	FILE* f = fopen(filePath, "rb");
 	fseek(f, 8, SEEK_SET);
-	this->format = Format(read16(f));
-	this->nTracks = read16(f);
-	this->division = read16(f);
+	format = read16(f);
+	nTracks = read16(f);
+	division = read16(f);
+
+	fclose(f);
 }
 
 
-HeaderChunk::Format HeaderChunk::getFormat() const {
-	return this->format;
+MidiType::FileFormat HeaderChunk::getFormat() const {
+	return MidiType::FileFormat(format);
 }
 
 

@@ -10,7 +10,7 @@ MetaEvent::MetaEvent(const char* filePath, long addr) {
 	fseek(f, addr, SEEK_SET);
 
 	code = getc(f);
-	type = getc(f);
+	status = getc(f);
 	length = getc(f);
 	data = new uint8_t[length];
 	byteLength = length + 3;
@@ -18,6 +18,8 @@ MetaEvent::MetaEvent(const char* filePath, long addr) {
 	for (int i {0}; i < length; ++i) {
 		data[i] = getc(f);
 	}
+
+	fclose(f);
 }
 
 
@@ -31,7 +33,7 @@ Event* MetaEvent::clone() const {
 
 	e->byteLength = byteLength;
 	e->code = code;
-	e->type = type;
+	e->status = status;
 	e->length = length;
 	e->data = new uint8_t[length];
 
@@ -41,3 +43,24 @@ Event* MetaEvent::clone() const {
 
 	return e;
 }
+
+
+MidiType::EventType MetaEvent::getType() const {
+	return MidiType::MetaEvent;
+}
+
+
+MidiType::MetaMessageStatus MetaEvent::getStatus() const {
+	return MidiType::MetaMessageStatus(status);
+}
+
+
+uint8_t MetaEvent::getLength() const {
+	return length;
+}
+
+
+uint8_t* MetaEvent::getData() const {
+	return data;
+}
+

@@ -10,7 +10,7 @@ target_sources(libParser PRIVATE
 		BaseChunk.cpp
 		HeaderChunk.cpp
 		TrackChunk.cpp
-		MidiFile.cpp
+		Midi.cpp
 		)
 
 target_include_directories(libParser PUBLIC .)

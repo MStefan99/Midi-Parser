@@ -8,6 +8,7 @@
 
 #include <cstdint>
 #include <cstdio>
+#include "types.h"
 
 
 class Event {
@@ -15,6 +16,7 @@ public:
 	virtual ~Event() = default;
 
 	[[nodiscard]] virtual Event* clone() const = 0;
+	[[nodiscard]] virtual MidiType::EventType getType() const = 0;
 
 	[[nodiscard]] uint8_t getByteLength() const;
 

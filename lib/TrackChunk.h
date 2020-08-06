@@ -6,21 +6,29 @@
 #define MIDI_PARSER_TRACKCHUNK_H
 
 
+#include <cstdint>
 #include "BaseChunk.h"
 #include "Event.h"
 #include "VLQ.h"
 #include "MTrkEvent.h"
-#include "list.h"
+#include "Options.h"
+
+#if USE_STL
 #include <list>
-#include <cstdint>
+#else
+#include "list.h"
+#endif
+
 
 
 struct TrackChunk: public BaseChunk {
 public:
 	TrackChunk(const char* filePath, long addr);
 
+	[[nodiscard]] const LIST<MTrkEvent>& getEvents() const;
+
 protected:
-	std::list<MTrkEvent> events {};
+	LIST<MTrkEvent> events {};
 };
 
 #endif //MIDI_PARSER_TRACKCHUNK_H

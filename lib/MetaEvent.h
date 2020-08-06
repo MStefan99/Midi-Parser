@@ -9,6 +9,7 @@
 #include <cstdio>
 #include <cstdint>
 #include "Event.h"
+#include "types.h"
 
 
 class MetaEvent: public Event {
@@ -17,11 +18,16 @@ public:
 	MetaEvent(const char* filePath, long addr);
 	~MetaEvent() override;
 
+	[[nodiscard]] MidiType::EventType getType() const override;
+	[[nodiscard]] MidiType::MetaMessageStatus getStatus() const;
+	[[nodiscard]] uint8_t getLength() const;
+	[[nodiscard]] uint8_t* getData() const;
+
 protected:
 	[[nodiscard]] Event* clone() const override;
 
 	uint8_t code {};
-	uint8_t type {};
+	uint8_t status {};
 	uint8_t length {};
 	uint8_t* data {};
 };

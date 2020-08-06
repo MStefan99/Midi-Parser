@@ -18,12 +18,12 @@ public:
 	BaseChunk(const BaseChunk& chunk);
 	~BaseChunk();
 
-	[[nodiscard]] std::string getType() const;
+	[[nodiscard]] std::string getName() const;
 	[[nodiscard]] int getLength() const;
 	[[nodiscard]] long getByteLength() const;
 
 protected:
-	char* type {};
+	char* name {};
 	uint32_t length {};
 	long byteLength {};
 };

@@ -8,7 +8,7 @@
 MTrkEvent::MTrkEvent(const char* filePath, long addr):
 		deltaTime(VLQ(filePath, addr)) {
 	FILE* f = fopen(filePath, "rb");
-	fseek(f, addr + deltaTime.getByteLength(), SEEK_SET);
+	fseek(f, addr + (long)deltaTime.getByteLength(), SEEK_SET);
 
 	uint8_t status = getc(f);
 	byteLength = deltaTime.getByteLength();
@@ -26,7 +26,9 @@ MTrkEvent::MTrkEvent(const char* filePath, long addr):
 			event = new MidiEvent(filePath, addr);
 			break;
 	}
+
 	byteLength += event->getByteLength();
+	fclose(f);
 }
 
 
@@ -47,8 +49,11 @@ VLQ MTrkEvent::getDeltaTime() const {
 }
 
 
-long MTrkEvent::getByteLength() const {
-	return byteLength;
+const Event* MTrkEvent::getEvent() const {
+	return event;
 }
 
 
+long MTrkEvent::getByteLength() const {
+	return byteLength;
+}

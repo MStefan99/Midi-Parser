@@ -36,6 +36,8 @@ MidiEvent::MidiEvent(const char* filePath, long addr) {
 			byteLength += 2;
 			break;
 	}
+
+	fclose(f);
 }
 
 
@@ -44,12 +46,17 @@ Event* MidiEvent::clone() const {
 }
 
 
-uint8_t MidiEvent::getStatus() const {
-	return status;
+MidiType::MidiMessageStatus MidiEvent::getStatus() const {
+	return MidiType::MidiMessageStatus(status & 0xF0u);
 }
 
 
 uint16_t MidiEvent::getData() const {
 	return data;
+}
+
+
+MidiType::EventType MidiEvent::getType() const {
+	return MidiType::MidiEvent;
 }
 

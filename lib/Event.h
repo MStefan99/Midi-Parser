@@ -12,16 +12,10 @@
 
 class Event {
 public:
-	[[nodiscard]] uint8_t getStatus() const;
-	[[nodiscard]] uint16_t getData() const;
 	[[nodiscard]] uint8_t getByteLength() const;
 
 protected:
-	Event(const char* filePath, long addr);
-
-	uint8_t status;
-	uint16_t data;
-	uint8_t byteLength {2};
+	uint8_t byteLength {};
 };
 
 #endif //MIDI_PARSER_EVENT_H

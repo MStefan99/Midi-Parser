@@ -5,7 +5,7 @@
 #include "TrackChunk.h"
 
 
-TrackChunk::TrackChunk(const char* filePath, long addr) :
+TrackChunk::TrackChunk(const char* filePath, long addr):
 		BaseChunk(filePath, addr) {
 	addr += 8;
 	long bytesRead {0};

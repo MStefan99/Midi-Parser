@@ -10,11 +10,12 @@
 #include "Event.h"
 #include "VLQ.h"
 #include "MTrkEvent.h"
+#include "list.h"
 #include <list>
 #include <cstdint>
 
 
-struct TrackChunk : public BaseChunk {
+struct TrackChunk: public BaseChunk {
 public:
 	TrackChunk(const char* filePath, long addr);
 

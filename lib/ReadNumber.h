@@ -13,5 +13,4 @@
 uint16_t read16(FILE* f);
 uint32_t read32(FILE* f);
 
-
 #endif //MIDI_PARSER_READNUMBER_H

@@ -3,6 +3,9 @@ target_sources(libParser PRIVATE
 		ReadNumber.cpp
 		VLQ.cpp
 		Event.cpp
+		MidiEvent.cpp
+		SysExEvent.cpp
+		MetaEvent.cpp
 		MTrkEvent.cpp
 		BaseChunk.cpp
 		HeaderChunk.cpp

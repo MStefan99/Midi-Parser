@@ -16,7 +16,7 @@ public:
 	VLQ(const char* filePath, long addr);
 
 	[[nodiscard]] uint32_t getData() const;
-	[[nodiscard]] uint8_t getLength() const;
+	[[nodiscard]] uint8_t getByteLength() const;
 
 protected:
 	uint32_t data {};

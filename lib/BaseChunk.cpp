@@ -19,7 +19,7 @@ BaseChunk::BaseChunk(const char* filePath, long addr) {
 }
 
 
-BaseChunk::BaseChunk(const char* type, uint32_t length) : length {length} {
+BaseChunk::BaseChunk(const char* type, uint32_t length): length {length} {
 	this->type = new char[5];
 
 	for (int i {0}; i < 4 && type[i]; ++i) {

@@ -24,9 +24,9 @@ public:
 
 protected:
 	BaseChunk(const char* type, uint32_t length);
-	char* type;
-	uint32_t length;
-	long byteLength;
+	char* type {};
+	uint32_t length {};
+	long byteLength {};
 };
 
 #endif //MIDI_PARSER_BASECHUNK_H

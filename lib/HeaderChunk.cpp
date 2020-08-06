@@ -5,7 +5,7 @@
 #include "HeaderChunk.h"
 
 
-HeaderChunk::HeaderChunk(const char* filePath) :
+HeaderChunk::HeaderChunk(const char* filePath):
 		BaseChunk(filePath, 0l) {
 
 	FILE* f = fopen(filePath, "rb");

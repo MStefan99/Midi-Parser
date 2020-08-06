@@ -7,18 +7,23 @@
 
 
 #include <cstdint>
+#include <cstdio>
 #include "VLQ.h"
-#include "Event.h"
+#include "MidiEvent.h"
+#include "SysExEvent.h"
+#include "MetaEvent.h"
 #include "ReadNumber.h"
 
 
-class MTrkEvent : public Event {
-
+class MTrkEvent {
 public:
 	MTrkEvent(const char* filePath, long addr);
+	[[nodiscard]] long getByteLength() const;
 
 protected:
 	VLQ deltaTime {};
+	Event* event {};
+	long byteLength {};
 };
 
 #endif //MIDI_PARSER_MTRKEVENT_H

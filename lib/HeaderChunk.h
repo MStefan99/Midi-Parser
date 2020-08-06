@@ -10,7 +10,7 @@
 #include <cstdint>
 
 
-class HeaderChunk : public BaseChunk {
+class HeaderChunk: public BaseChunk {
 public:
 	typedef enum {
 		SingleTrack = 0,  // Files which only contain a single track

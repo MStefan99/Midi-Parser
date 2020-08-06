@@ -7,13 +7,14 @@
 
 
 #include <list>
+#include "list.h"
 #include "HeaderChunk.h"
 #include "TrackChunk.h"
 
 
 class MidiFile {
 public:
-	MidiFile(const char* filePath);
+	explicit MidiFile(const char* filePath);
 
 protected:
 	HeaderChunk header;

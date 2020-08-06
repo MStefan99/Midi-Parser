@@ -30,6 +30,17 @@ MTrkEvent::MTrkEvent(const char* filePath, long addr):
 }
 
 
+MTrkEvent::MTrkEvent(const MTrkEvent& event):
+		deltaTime(event.deltaTime),
+		event(event.event->clone()) {
+}
+
+
+MTrkEvent::~MTrkEvent() {
+	delete (event);
+}
+
+
 long MTrkEvent::getByteLength() const {
 	return byteLength;
 }

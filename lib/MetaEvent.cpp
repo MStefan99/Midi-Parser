@@ -19,3 +19,25 @@ MetaEvent::MetaEvent(const char* filePath, long addr) {
 		data[i] = getc(f);
 	}
 }
+
+
+MetaEvent::~MetaEvent() {
+	delete[] (data);
+}
+
+
+Event* MetaEvent::clone() const {
+	auto* e = new MetaEvent;
+
+	e->byteLength = byteLength;
+	e->code = code;
+	e->type = type;
+	e->length = length;
+	e->data = new uint8_t[length];
+
+	for (int i {0}; i < length; ++i) {
+		e->data[i] = data[i];
+	}
+
+	return e;
+}

@@ -20,10 +20,10 @@ public:
 
 public:
 	BaseChunk(const char* filePath, long addr);
+	BaseChunk(const BaseChunk& chunk);
 	~BaseChunk();
 
 protected:
-	BaseChunk(const char* type, uint32_t length);
 	char* type {};
 	uint32_t length {};
 	long byteLength {};

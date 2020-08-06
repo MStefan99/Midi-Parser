@@ -13,13 +13,17 @@
 
 class MetaEvent: public Event {
 public:
+	MetaEvent() = default;
 	MetaEvent(const char* filePath, long addr);
+	~MetaEvent() override;
 
 protected:
-	uint8_t code;
-	uint8_t type;
-	uint8_t length;
-	uint8_t* data;
+	[[nodiscard]] Event* clone() const override;
+
+	uint8_t code {};
+	uint8_t type {};
+	uint8_t length {};
+	uint8_t* data {};
 };
 
 #endif //MIDI_PARSER_METAEVENT_H

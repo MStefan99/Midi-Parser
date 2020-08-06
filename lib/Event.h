@@ -13,6 +13,9 @@
 class Event {
 public:
 	[[nodiscard]] uint8_t getByteLength() const;
+	virtual ~Event() = default;
+
+	[[nodiscard]] virtual Event* clone() const = 0;
 
 protected:
 	uint8_t byteLength {};

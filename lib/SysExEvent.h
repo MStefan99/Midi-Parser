@@ -13,12 +13,16 @@
 
 class SysExEvent: public Event {
 public:
+	SysExEvent() = default;
 	SysExEvent(const char* filePath, long addr);
+	~SysExEvent() override;
+
+	[[nodiscard]] Event* clone() const override;
 
 protected:
-	uint8_t code;
-	uint8_t length;
-	uint8_t* data;
+	uint8_t code {};
+	uint8_t length {};
+	uint8_t* data {};
 };
 
 #endif //MIDI_PARSER_SYSEXEVENT_H

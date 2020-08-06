@@ -18,6 +18,9 @@
 class MTrkEvent {
 public:
 	MTrkEvent(const char* filePath, long addr);
+	MTrkEvent(const MTrkEvent& event);
+	~MTrkEvent();
+
 	[[nodiscard]] long getByteLength() const;
 
 protected:

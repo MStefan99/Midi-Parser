@@ -14,14 +14,13 @@
 
 class BaseChunk {
 public:
-	[[nodiscard]] std::string getType() const;
-	[[nodiscard]] int getLength() const;
-	[[nodiscard]] long getByteLength() const;
-
-public:
 	BaseChunk(const char* filePath, long addr);
 	BaseChunk(const BaseChunk& chunk);
 	~BaseChunk();
+
+	[[nodiscard]] std::string getType() const;
+	[[nodiscard]] int getLength() const;
+	[[nodiscard]] long getByteLength() const;
 
 protected:
 	char* type {};

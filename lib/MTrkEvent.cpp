@@ -32,7 +32,8 @@ MTrkEvent::MTrkEvent(const char* filePath, long addr):
 
 MTrkEvent::MTrkEvent(const MTrkEvent& event):
 		deltaTime(event.deltaTime),
-		event(event.event->clone()) {
+		event(event.event->clone()),
+		byteLength(event.byteLength) {
 }
 
 
@@ -41,6 +42,13 @@ MTrkEvent::~MTrkEvent() {
 }
 
 
+VLQ MTrkEvent::getDeltaTime() const {
+	return deltaTime;
+}
+
+
 long MTrkEvent::getByteLength() const {
 	return byteLength;
 }
+
+

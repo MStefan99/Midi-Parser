@@ -12,10 +12,11 @@
 
 class Event {
 public:
-	[[nodiscard]] uint8_t getByteLength() const;
 	virtual ~Event() = default;
 
 	[[nodiscard]] virtual Event* clone() const = 0;
+
+	[[nodiscard]] uint8_t getByteLength() const;
 
 protected:
 	uint8_t byteLength {};

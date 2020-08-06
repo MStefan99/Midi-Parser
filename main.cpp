@@ -1,7 +1,7 @@
 #include "MidiFile.h"
 
 
-char PATH[] = "./res/reference.mid";
+char PATH[] = "./res/sample.mid";
 
 
 int main() {

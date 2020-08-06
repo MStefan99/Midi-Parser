@@ -21,6 +21,7 @@ public:
 	MTrkEvent(const MTrkEvent& event);
 	~MTrkEvent();
 
+	[[nodiscard]] VLQ getDeltaTime() const;
 	[[nodiscard]] long getByteLength() const;
 
 protected:

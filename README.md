@@ -23,8 +23,8 @@ in different directories.)*
 ## Usage
 - Instantiate the `Midi` object as follows: `Midi midiFile {"path_to_file.mid"};`.
 - You can find a simple program using Midi Parser in the `main.cpp` file.
-- For the full library reference, please check the [wiki][wiki].
+- For the full library reference, please check the [documentation][doc].
 
 
 [releases]: [https://github.com/MStefan99/Midi-Parser/releases]
-[wiki]: [https://github.com/MStefan99/Midi-Parser/wiki]
+[doc]: [http://midi-parser.mstefan99.com/html/class_midi.html]

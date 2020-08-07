@@ -26,5 +26,5 @@ in different directories.)*
 - For the full library reference, please check the [documentation][doc].
 
 
-[releases]: [https://github.com/MStefan99/Midi-Parser/releases]
-[doc]: [http://midi-parser.mstefan99.com/html/class_midi.html]
+[releases]: https://github.com/MStefan99/Midi-Parser/releases
+[doc]: http://midi-parser.mstefan99.com/html/class_midi.html

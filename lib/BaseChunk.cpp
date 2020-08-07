@@ -37,8 +37,8 @@ BaseChunk::~BaseChunk() {
 }
 
 
-std::string BaseChunk::getName() const {
-	return std::string(name);
+char* BaseChunk::getName() const {
+	return name;
 }
 
 

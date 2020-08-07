@@ -44,7 +44,7 @@ MTrkEvent::~MTrkEvent() {
 }
 
 
-VLQ MTrkEvent::getDeltaTime() const {
+const VLQ& MTrkEvent::getDeltaTime() const {
 	return deltaTime;
 }
 

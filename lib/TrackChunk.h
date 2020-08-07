@@ -20,11 +20,23 @@
 #endif
 
 
-
+/**
+ * \class TrackChunk
+ * \brief Contains track data
+ */
 struct TrackChunk: public BaseChunk {
 public:
+	/**
+	 * Reads the Midi file and constructs the chunk object
+	 * @param filePath Path to the Midi file to read
+	 * @param addr Address of the chunk in bytes
+	 */
 	TrackChunk(const char* filePath, long addr);
 
+	/**
+	 * Returns track events
+	 * @return List of the track events
+	 */
 	[[nodiscard]] const LIST<MTrkEvent>& getEvents() const;
 
 protected:

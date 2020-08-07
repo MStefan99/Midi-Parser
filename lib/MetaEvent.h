@@ -8,8 +8,8 @@
 
 #include <cstdio>
 #include <cstdint>
-#include "Event.h"
 #include "types.h"
+#include "Event.h"
 
 
 class MetaEvent: public Event {

@@ -51,12 +51,36 @@ MidiType::MidiMessageStatus MidiEvent::getStatus() const {
 }
 
 
+uint8_t MidiEvent::getChannel() const {
+	return status & 0x0Fu;
+}
+
+
+uint8_t MidiEvent::getNote() const {
+	if ((status & 0xF0u) == MidiType::MidiMessageStatus::NoteOn ||
+		(status & 0xF0u) == MidiType::MidiMessageStatus::NoteOff) {
+		return data >> 8u;
+	} else {
+		return 0;
+	}
+}
+
+
+uint8_t MidiEvent::getVelocity() const {
+	if ((status & 0xF0u) == MidiType::MidiMessageStatus::NoteOn ||
+		(status & 0xF0u) == MidiType::MidiMessageStatus::NoteOff) {
+		return data & 0xFFu;
+	} else {
+		return 0;
+	}
+}
+
+
 uint16_t MidiEvent::getData() const {
 	return data;
 }
 
 
 MidiType::EventType MidiEvent::getType() const {
-	return MidiType::MidiEvent;
+	return MidiType::EventType::MidiEvent;
 }
-

@@ -8,6 +8,7 @@
 
 #include <cstdio>
 #include <cstdint>
+#include "types.h"
 #include "Event.h"
 
 

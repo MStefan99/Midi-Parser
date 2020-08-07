@@ -28,42 +28,52 @@ int main() {
 			auto* event = trackEvent.getEvent();
 			uint8_t* data;
 
-			switch (event->getType()) {
-				case MidiType::MidiEvent:
-					cout << "		Midi event:" << endl;
-					cout << "			Status: 0x" << hex
-						 << ((MidiEvent*)event)->getStatus() << endl;
-					cout << "			Data: 0x"
-						 << ((MidiEvent*)event)->getData() << dec << endl;
-					break;
-				case MidiType::SysExEvent:
-					cout << "\t\tSystem exclusive event:" << endl;
-					cout << "\t\t\tStatus: 0x" << hex
-						 << ((MetaEvent*)event)->getStatus() << endl;
-					cout << "\t\t\tData: 0x";
+			if (event->getType() == MidiType::EventType::MidiEvent) {
+				auto* midiEvent = (MidiEvent*)event;
 
-					data = ((MetaEvent*)event)->getData();
-					for (int i {0}; i < ((MetaEvent*)event)->getLength(); ++i) {
-						cout << (int)data[i];
-					}
-					cout << endl;
-					break;
-				case MidiType::MetaEvent:
-					cout << "\t\tMeta event:" << endl;
-					cout << "\t\t\tStatus: 0x" << hex
-						 << ((MetaEvent*)event)->getStatus() << endl;
-					cout << "\t\t\tData: 0x";
+				cout << "		Midi event:" << endl;
+				auto status = midiEvent->getStatus();
 
-					data = ((MetaEvent*)event)->getData();
-					for (int i {0}; i < ((MetaEvent*)event)->getLength(); ++i) {
-						cout << (int)data[i];
-					}
-					if (!((MetaEvent*)event)->getLength()) {
-						cout << "0";
-					}
-					cout << endl;
-					break;
+				if (status == MidiType::MidiMessageStatus::NoteOn) {
+					cout << "\t\t\t" << "Note " << (midiEvent->getVelocity()? "on " : "off ")
+						 << (int)midiEvent->getNote()
+						 << " on channel " << (int)midiEvent->getChannel() << endl;
+				} else if (status == MidiType::MidiMessageStatus::NoteOff) {
+					cout << "\t\t\t" << "Note off "
+						 << (int)midiEvent->getNote()
+						 << " on channel " << (int)midiEvent->getChannel() << endl;
+				} else {
+					cout << "\t\t\tStatus: 0x" << hex << (int)midiEvent->getStatus() << endl
+						 << "\t\t\tData: 0x" << midiEvent->getData() << dec << endl;
+				}
+			} else if (event->getType() == MidiType::EventType::SysExEvent) {
+				cout << "\t\tSystem exclusive event:" << endl
+					 << "\t\t\tStatus: 0x" << hex
+					 << ((MetaEvent*)event)->getStatus() << endl
+					 << "\t\t\tData: 0x";
+
+				data = ((MetaEvent*)event)->getData();
+				for (int i {0}; i < ((MetaEvent*)event)->getLength(); ++i) {
+					cout << (int)data[i];
+				}
+				cout << dec << endl;
+			} else {  // event->getType() == MidiType::EventType::MetaEvent
+				cout << "\t\tMeta event:" << endl
+					 << "\t\t\tStatus: 0x" << hex
+					 << ((MetaEvent*)event)->getStatus() << endl
+					 << "\t\t\tData: 0x";
+
+				data = ((MetaEvent*)event)->getData();
+				for (int i {0}; i < ((MetaEvent*)event)->getLength(); ++i) {
+					cout << (int)data[i];
+				}
+				if (!((MetaEvent*)event)->getLength()) {
+					cout << "0";
+				}
+				cout << dec << endl;
 			}
+
+			cout << "\t\t\tLength: " << trackEvent.getDeltaTime().getData() << endl;
 		}
 	}
 

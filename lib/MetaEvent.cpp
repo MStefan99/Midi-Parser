@@ -46,7 +46,7 @@ Event* MetaEvent::clone() const {
 
 
 MidiType::EventType MetaEvent::getType() const {
-	return MidiType::MetaEvent;
+	return MidiType::EventType::MetaEvent;
 }
 
 

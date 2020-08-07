@@ -43,7 +43,7 @@ SysExEvent::~SysExEvent() {
 
 
 MidiType::EventType SysExEvent::getType() const {
-	return MidiType::SysExEvent;
+	return MidiType::EventType::SysExEvent;
 }
 
 

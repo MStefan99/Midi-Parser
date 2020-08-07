@@ -8,6 +8,7 @@
 
 #include <cstdint>
 #include <cstdio>
+#include "types.h"
 #include "Event.h"
 
 
@@ -19,6 +20,9 @@ public:
 
 	[[nodiscard]] MidiType::EventType getType() const override;
 	[[nodiscard]] MidiType::MidiMessageStatus getStatus() const;
+	[[nodiscard]] uint8_t getChannel() const;
+	[[nodiscard]] uint8_t getNote() const;
+	[[nodiscard]] uint8_t getVelocity() const;
 	[[nodiscard]] uint16_t getData() const;
 
 protected:

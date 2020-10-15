@@ -33,7 +33,7 @@ public:
 	 * Clones the event object
 	 * @return Pointer to the cloned event
 	 */
-	[[nodiscard]] Event * clone() const override;
+	[[nodiscard]] MidiEvent* clone() const override;
 
 	/**
 	 * Returns the type of the event

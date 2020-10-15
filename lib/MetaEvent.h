@@ -33,6 +33,11 @@ public:
 	 * Destroys the MetaEvent object
 	 */
 	~MetaEvent() override;
+	/**
+	 * Clones the event object
+	 * @return Pointer to the cloned event object
+	 */
+	[[nodiscard]] MetaEvent* clone() const override;
 
 	/**
 	 * Returns the event type
@@ -56,8 +61,6 @@ public:
 	[[nodiscard]] uint8_t* getData() const;
 
 protected:
-	[[nodiscard]] Event* clone() const override;
-
 	uint8_t code {};
 	uint8_t status {};
 	uint8_t length {};

@@ -37,7 +37,7 @@ public:
 	 * Clones the event object
 	 * @return Pointer to the cloned event object
 	 */
-	[[nodiscard]] Event* clone() const override;
+	[[nodiscard]] SysExEvent* clone() const override;
 
 	/**
 	 * Returns the type of the event

@@ -2,7 +2,7 @@ var class_midi_event =
 [
     [ "MidiEvent", "class_midi_event.html#aa3273ae170ad13073a7b22d5827f058d", null ],
     [ "~MidiEvent", "class_midi_event.html#ae8e5281e805c2448c180f91c83a0bb97", null ],
-    [ "clone", "class_midi_event.html#a2a28c7908f97330d8d06e522c169fbab", null ],
+    [ "clone", "class_midi_event.html#a88e509f02cf0c7087a63a897c12b0360", null ],
     [ "getChannel", "class_midi_event.html#aaf27ecb6baff32f09525661d1eb87f69", null ],
     [ "getData", "class_midi_event.html#a84c338bac5c941069e5364d45af1982b", null ],
     [ "getNote", "class_midi_event.html#a21e8e0dcf222869988cd240cf52ecad2", null ],

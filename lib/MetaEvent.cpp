@@ -28,7 +28,7 @@ MetaEvent::~MetaEvent() {
 }
 
 
-Event* MetaEvent::clone() const {
+MetaEvent* MetaEvent::clone() const {
 	auto* e = new MetaEvent;
 
 	e->byteLength = byteLength;

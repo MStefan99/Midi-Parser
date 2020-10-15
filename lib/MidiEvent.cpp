@@ -41,7 +41,7 @@ MidiEvent::MidiEvent(const char* filePath, long addr) {
 }
 
 
-Event* MidiEvent::clone() const {
+MidiEvent* MidiEvent::clone() const {
 	return new MidiEvent(*this);
 }
 

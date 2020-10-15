@@ -84,7 +84,6 @@ $(document).ready(function(){initNavTree('class_meta_event.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_meta_event-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -114,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6b5f1dff0be9ad02182bf3986167ffe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a640945155025e0a3dd241a97b0e34036"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meta_event.html#a640945155025e0a3dd241a97b0e34036">~MetaEvent</a> () override</td></tr>
 <tr class="separator:a640945155025e0a3dd241a97b0e34036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd6b5d0380668422330e1ec8c200d91a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_meta_event.html">MetaEvent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meta_event.html#acd6b5d0380668422330e1ec8c200d91a">clone</a> () const override</td></tr>
+<tr class="separator:acd6b5d0380668422330e1ec8c200d91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89dd7cf92efa5657bf953f54ae773623"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_midi_type.html#a0843fe899feb1385b92edc33f11c07c5">MidiType::EventType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meta_event.html#a89dd7cf92efa5657bf953f54ae773623">getType</a> () const override</td></tr>
 <tr class="separator:a89dd7cf92efa5657bf953f54ae773623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05780a770c37fa3985f0fa24457f1911"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_midi_type.html#a883e36c0544715da0057a449101143ba">MidiType::MetaMessageStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meta_event.html#a05780a770c37fa3985f0fa24457f1911">getStatus</a> () const</td></tr>
@@ -127,11 +128,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a105223995bbf1a1e4714d0c77f91cf0b inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70d6381c4940b64deba361640a7b0558 inherit pub_methods_class_event"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a70d6381c4940b64deba361640a7b0558">getByteLength</a> () const</td></tr>
 <tr class="separator:a70d6381c4940b64deba361640a7b0558 inherit pub_methods_class_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1e3c6b00f94fd0c3632df78ee7046f92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meta_event.html#a1e3c6b00f94fd0c3632df78ee7046f92">clone</a> () const override</td></tr>
-<tr class="separator:a1e3c6b00f94fd0c3632df78ee7046f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -244,8 +240,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>byteLength</b> {}<
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1e3c6b00f94fd0c3632df78ee7046f92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e3c6b00f94fd0c3632df78ee7046f92">&#9670;&nbsp;</a></span>clone()</h2>
+<a id="acd6b5d0380668422330e1ec8c200d91a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6b5d0380668422330e1ec8c200d91a">&#9670;&nbsp;</a></span>clone()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,7 +250,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>byteLength</b> {}<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_event.html">Event</a> * MetaEvent::clone </td>
+          <td class="memname"><a class="el" href="class_meta_event.html">MetaEvent</a> * MetaEvent::clone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -262,11 +258,11 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>byteLength</b> {}<
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Clones the event </p><dl class="section return"><dt>Returns</dt><dd>A pointer to the cloned <a class="el" href="class_event.html" title="A base class for Midi events.">Event</a> object </dd></dl>
+<p>Clones the event object </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the cloned event object </dd></dl>
 
 <p>Implements <a class="el" href="class_event.html#a4e1058811d19221a0e27a2d6460d6ffd">Event</a>.</p>
 

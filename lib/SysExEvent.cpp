@@ -22,7 +22,7 @@ SysExEvent::SysExEvent(const char* filePath, long addr) {
 }
 
 
-Event* SysExEvent::clone() const {
+SysExEvent* SysExEvent::clone() const {
 	auto* e = new SysExEvent;
 
 	e->status = status;

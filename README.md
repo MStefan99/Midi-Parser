@@ -3,6 +3,8 @@
 *Midi Parser is a tiny C++ library made to simplify reading binary Midi files.*
 ___
 
+![Maintenance](https://img.shields.io/maintenance/no/2020?style=flat-square)
+
 
 ## Compatibility
 Midi Parser is written in C++ and uses `<cstdio>` library for reading files so any device 
